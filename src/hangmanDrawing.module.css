@@ -1,0 +1,19 @@
+.loser {
+  background: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes example {
+  from {
+    top: 0px;
+    rotate: 0deg;
+  }
+  to {
+    top: 150px;
+    background: red;
+    rotate: -10deg;
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./hangmanDrawing.module.css";
 
 const HEAD = (
   <div
@@ -98,7 +99,9 @@ export default function HangmanDrawing({
           position: "relative",
         }}
       >
-        {BODY_PARTS.slice(0, numberOfGuesses)}
+        <div className={`${numberOfGuesses >= 6 && styles.loser}`}>
+          {BODY_PARTS.slice(0, numberOfGuesses)}
+        </div>
         <div
           style={{
             width: "8px",
