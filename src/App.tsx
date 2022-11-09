@@ -11,6 +11,10 @@ function App() {
   const incorrectLetters = guessedLetters.filter(
     (letter) => !wordToGuess.includes(letter)
   );
+  const isLoser = incorrectLetters.length >= 6;
+  const isWinner = wordToGuess
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
   const addGuessedLetter = useCallback(
     (letter: string) => {
       if (guessedLetters.includes(letter)) return;
@@ -48,7 +52,8 @@ function App() {
           textAlign: "center",
         }}
       >
-        Lose or Win
+        {isLoser && <p>You Lost</p>}
+        {isWinner && <p>You Won</p>}
       </div>
 
       <HangmanDrawing
@@ -62,6 +67,8 @@ function App() {
           )}
           inactiveLetters={incorrectLetters}
           addingGuessedLetter={addGuessedLetter}
+          isLoser={isLoser}
+          isWinner={isWinner}
         ></Keyboard>
       </div>
     </div>
