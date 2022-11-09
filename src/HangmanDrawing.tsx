@@ -12,6 +12,7 @@ const HEAD = (
       right: "1px",
       top: "50px",
     }}
+    key={1}
   ></div>
 );
 const BODY = (
@@ -24,6 +25,7 @@ const BODY = (
       right: "20px",
       top: "99px",
     }}
+    key={2}
   ></div>
 );
 const LEFT_ARM = (
@@ -37,6 +39,7 @@ const LEFT_ARM = (
       top: "99px",
       rotate: "30deg",
     }}
+    key={3}
   ></div>
 );
 const RIGHT_ARM = (
@@ -50,6 +53,7 @@ const RIGHT_ARM = (
       top: "99px",
       rotate: "150deg",
     }}
+    key={4}
   ></div>
 );
 const RIGHT_LEG = (
@@ -63,6 +67,7 @@ const RIGHT_LEG = (
       top: "216px",
       rotate: "40deg",
     }}
+    key={5}
   ></div>
 );
 const LEFT_LEG = (
@@ -76,6 +81,7 @@ const LEFT_LEG = (
       top: "216px",
       rotate: "-40deg",
     }}
+    key={6}
   ></div>
 );
 const BODY_PARTS = [HEAD, BODY, LEFT_ARM, RIGHT_ARM, RIGHT_LEG, LEFT_LEG];

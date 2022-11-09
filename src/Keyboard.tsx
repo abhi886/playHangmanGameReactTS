@@ -28,7 +28,16 @@ const KEYS = [
   "Y",
   "Z",
 ];
-export default function Keyboard() {
+type KeyboardProps = {
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addingGuessedLetter: (letter: string) => void;
+};
+export default function Keyboard({
+  activeLetters,
+  inactiveLetters,
+  addingGuessedLetter,
+}: KeyboardProps) {
   return (
     <div
       style={{
@@ -37,9 +46,18 @@ export default function Keyboard() {
         gap: "1rem",
       }}
     >
-      {KEYS.map((key) => {
+      {KEYS.map((key, i) => {
+        const isActive = activeLetters.includes(key);
+        const isInactive = inactiveLetters.includes(key);
         return (
-          <button disabled className={`${styles.btn} `}>
+          <button
+            onClick={() => addingGuessedLetter(key)}
+            className={`${styles.btn} ${isActive ? styles.active : ""} ${
+              isInactive ? styles.inactive : ""
+            }`}
+            disabled={isActive || isInactive}
+            key={i}
+          >
             {key}
           </button>
         );
