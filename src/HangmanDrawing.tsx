@@ -78,59 +78,54 @@ const LEFT_LEG = (
     }}
   ></div>
 );
-const hangman = [
-  { HEAD },
-  { BODY },
-  { LEFT_ARM },
-  { RIGHT_ARM },
-  { RIGHT_LEG },
-  { LEFT_LEG },
-];
-export default function HangmanDrawing() {
+const BODY_PARTS = [HEAD, BODY, LEFT_ARM, RIGHT_ARM, RIGHT_LEG, LEFT_LEG];
+type HangmanDrawingProps = {
+  numberOfGuesses: number;
+};
+export default function HangmanDrawing({
+  numberOfGuesses,
+}: HangmanDrawingProps) {
   return (
-    <div
-      style={{
-        position: "relative",
-      }}
-    >
-      {/* {console.log(hangman[0][key])} */}
-      {/* {hangman.slice(0, 6).map((h, i) => {
-        for (const [key, value] of Object.entries(h)) {
-          return value;
-        }
-      })} */}
+    <>
       <div
         style={{
-          width: "8px",
-          height: "50px",
-          background: "black",
-          position: "absolute",
-          right: "22px",
+          position: "relative",
         }}
-      ></div>
-      <div
-        style={{
-          width: "100px",
-          height: "8px",
-          background: "black",
-          marginLeft: "120px",
-        }}
-      ></div>
-      <div
-        style={{
-          width: "8px",
-          height: "400px",
-          background: "black",
-          marginLeft: "120px",
-        }}
-      ></div>
-      <div
-        style={{
-          width: "250px",
-          height: "8px",
-          background: "black",
-        }}
-      ></div>
-    </div>
+      >
+        {BODY_PARTS.slice(0, numberOfGuesses)}
+        <div
+          style={{
+            width: "8px",
+            height: "50px",
+            background: "black",
+            position: "absolute",
+            right: "22px",
+          }}
+        ></div>
+        <div
+          style={{
+            width: "100px",
+            height: "8px",
+            background: "black",
+            marginLeft: "120px",
+          }}
+        ></div>
+        <div
+          style={{
+            width: "8px",
+            height: "400px",
+            background: "black",
+            marginLeft: "120px",
+          }}
+        ></div>
+        <div
+          style={{
+            width: "250px",
+            height: "8px",
+            background: "black",
+          }}
+        ></div>
+      </div>
+    </>
   );
 }

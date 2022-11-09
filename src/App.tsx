@@ -8,6 +8,9 @@ function App() {
     return words[Math.floor(Math.random() * words.length)];
   });
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const incorrectLetters = guessedLetters.filter(
+    (letter) => !wordToGuess.includes(letter)
+  );
   return (
     <div
       style={{
@@ -28,8 +31,10 @@ function App() {
         Lose or Win
       </div>
 
-      <HangmanDrawing></HangmanDrawing>
-      <HangmanWord></HangmanWord>
+      <HangmanDrawing
+        numberOfGuesses={incorrectLetters.length}
+      ></HangmanDrawing>
+      <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard></Keyboard>
       </div>

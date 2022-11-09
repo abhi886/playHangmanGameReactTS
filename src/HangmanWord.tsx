@@ -1,7 +1,14 @@
 import React from "react";
-const word = "test";
-const guessedLetter = ["t", "e"];
-export default function HangmanWord() {
+
+type HangmanWordProps = {
+  guessedLetters: string[];
+  wordToGuess: string;
+};
+
+export default function HangmanWord({
+  guessedLetters,
+  wordToGuess,
+}: HangmanWordProps) {
   return (
     <div
       style={{
@@ -13,11 +20,13 @@ export default function HangmanWord() {
         fontFamily: "monospace",
       }}
     >
-      {word.split("").map((letter, index) => (
+      {wordToGuess.split("").map((letter, index) => (
         <span style={{ borderBottom: ".1rem solid black" }} key={index}>
           <span
             style={{
-              visibility: guessedLetter.includes(letter) ? "visible" : "hidden",
+              visibility: guessedLetters.includes(letter)
+                ? "visible"
+                : "hidden",
             }}
           >
             {letter}
