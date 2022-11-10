@@ -59,6 +59,11 @@ function App() {
       <HangmanDrawing
         numberOfGuesses={incorrectLetters.length}
       ></HangmanDrawing>
+      {(isLoser || isWinner) && (
+        <button style={{ marginTop: "10px" }} onClick={() => location.reload()}>
+          Try Again!!
+        </button>
+      )}
       <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard
